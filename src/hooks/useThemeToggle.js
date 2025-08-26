@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 export function useThemeToggle() {
-  const { theme, setTheme, systemTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // Ensure component is mounted before accessing theme
@@ -11,28 +11,24 @@ export function useThemeToggle() {
     setMounted(true);
   }, []);
 
-  // Get current theme (resolved theme is more reliable)
-  const currentTheme = resolvedTheme || (theme === 'system' ? systemTheme : theme);
+  // Force ignore 'system' and resolve to explicit light/dark only
+  const currentTheme = theme === 'dark' ? 'dark' : 'light';
 
   // Toggle between light and dark
   const toggleTheme = () => {
-    if (currentTheme === 'dark') {
-      setTheme('light');
-    } else {
-      setTheme('dark');
-    }
+    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
   };
 
   // Set specific theme
   const setLightTheme = () => setTheme('light');
   const setDarkTheme = () => setTheme('dark');
-  const setSystemTheme = () => setTheme('system');
+  const setSystemTheme = () => setTheme('light');
 
   return {
     theme: currentTheme,
     isDark: currentTheme === 'dark',
     isLight: currentTheme === 'light',
-    isSystem: theme === 'system',
+    isSystem: false,
     mounted,
     toggleTheme,
     setLightTheme,
