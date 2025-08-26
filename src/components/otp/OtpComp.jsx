@@ -107,46 +107,37 @@ export default function OtpComp() {
     }
   };
 
-  const getInputClassName = (idx) => {
-    let baseClass = `
-      w-12 h-14 sm:w-14 sm:h-16 md:w-16 md:h-18
-      text-center text-2xl md:text-3xl font-semibold
-      border-2 rounded-xl
-      focus:outline-none transition-all duration-300
-      bg-gray-800/50 text-white backdrop-blur-sm
-      transform hover:scale-105
-    `;
-    
-    if (isLoading) {
-      baseClass += " border-yellow-400 animate-pulse";
-    } else if (isCorrect === true) {
-      baseClass += " border-green-400 bg-green-900/30 shadow-lg shadow-green-400/20";
-    } else if (isCorrect === false) {
-      baseClass += " border-red-400 bg-red-900/30 shadow-lg shadow-red-400/20";
-    } else if (otp[idx]) {
-      baseClass += " border-blue-400 shadow-lg shadow-blue-400/20";
-    } else {
-      baseClass += " border-gray-500 focus:border-blue-400 focus:shadow-lg focus:shadow-blue-400/20";
-    }
-    
-    return baseClass;
-  };
+const getInputClassName = (idx) => {
+  let baseClass = `
+    w-10 sm:w-12 md:w-14 lg:w-16
+    h-10 sm:h-12 md:h-14 lg:h-16
+    text-center text-xl sm:text-2xl md:text-3xl font-semibold
+    border-2 rounded-xl
+    focus:outline-none transition-all duration-300
+    bg-gray-800/50 text-white backdrop-blur-sm
+    transform hover:scale-105
+  `;
 
-  const handleResendOtp = () => {
-    setOtp(Array(6).fill(""));
-    setIsCorrect(null);
-    inputRefs.current[0]?.focus();
-    // Add your resend OTP logic here
-    console.log("Resending OTP...");
-  };
+  if (isLoading) {
+    baseClass += " border-yellow-400 animate-pulse";
+  } else if (isCorrect === true) {
+    baseClass += " border-green-400 bg-green-900/30 shadow-lg shadow-green-400/20";
+  } else if (isCorrect === false) {
+    baseClass += " border-red-400 bg-red-900/30 shadow-lg shadow-red-400/20";
+  } else if (otp[idx]) {
+    baseClass += " border-blue-400 shadow-lg shadow-blue-400/20";
+  } else {
+    baseClass += " border-gray-500 focus:border-blue-400 focus:shadow-lg focus:shadow-blue-400/20";
+  }
+
+  return baseClass;
+};
+
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 border border-white rounded-lg px-4 instrument-serif-regular">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-4 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
-      </div>
+   
       
       <div className="relative z-10">
         {/* Header */}
@@ -158,7 +149,7 @@ export default function OtpComp() {
 
         {/* OTP Input Container */}
         <div className={`
-          bg-white/5 backdrop-blur-lg rounded-2xl p-6 sm:p-8 
+          bg-white/5 backdrop-blur-lg rounded-2xl p-8 sm:p-8 
           border border-white/10 shadow-2xl
           ${shake ? "animate-shake" : ""}
         `}>
