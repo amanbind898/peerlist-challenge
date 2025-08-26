@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+/* Base font variable */
+:root {
+  --font-default: "Instrument Serif", serif;
+}
+
+/* Light mode (default) */
+body {
+  background-color: white;
+  color: #111827; /* text-gray-900 */
+  transition: color 0.3s ease, background-color 0.3s ease;
+  font-family: var(--font-default);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark mode (when <html class="dark"> is applied) */
+:is(.dark) body {
+  background-color: #111827; /* bg-gray-900 */
+  color: #f3f4f6; /* text-gray-100 */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Optional explicit font classes */
+.instrument-serif-regular {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.instrument-serif-regular-italic {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
