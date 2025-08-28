@@ -21,9 +21,8 @@ function handleCardClick(e) {
 }
 
   return (
-    <div className={mounted && isDark ? 'dark' : ''}>
-      <div className="font-serif grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-        <main className="flex flex-col gap-10 row-start-2 items-center text-center p-4">
+    <div className="font-serif grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+      <main className="flex flex-col gap-10 row-start-2 items-center text-center p-4">
           <h1 className="text-5xl font-normal mb-2">
             Interaction Design Challenge
           </h1>
@@ -121,8 +120,7 @@ function handleCardClick(e) {
               ))}
             </div>
           </nav>
-        </main>
-      </div>
+      </main>
     </div>
   );
 }
