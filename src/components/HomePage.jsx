@@ -8,7 +8,7 @@ import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export default function HomePage() {
   const { isDark, mounted } = useThemeToggle();
-  const days = Array.from({ length: 3 }, (_, i) => i + 1);
+  const days = Array.from({ length: 7 }, (_, i) => i + 1);
   const [cardClicked, setCardClicked] = useState(false);
 const router = useRouter();
 
