@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Iphone15Pro({
+export default function Iphone15Pro({
   width = 433,
   height = 882,
   src,
