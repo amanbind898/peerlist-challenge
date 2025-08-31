@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import DayPage from "@/components/DayPage";
-import { Iphone15Pro } from "@/components/Iphone15Pro";
+import Iphone15Pro from "@/components/Iphone15pro";
 
 export default function DayWisePage() {
   const emailCards = [
