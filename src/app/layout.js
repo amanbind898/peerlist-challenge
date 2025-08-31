@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors antialiased">
+      <body className=" text-gray-900   transition-colors antialiased">
         <Providers>
           <Header />
           <main className="pt-16 min-h-screen">{children}</main>
